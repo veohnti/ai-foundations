@@ -1,0 +1,31 @@
+# Secrets: only .env.example (placeholders) is committed
+.env
+.env.*
+!.env.example
+
+# Local-only data pack: database and product images (not in git)
+data/
+data.zip
+
+# Generated from the data pack, so also local-only
+frontend/src/static/catalogue.json
+output/website/
+
+# Python
+.venv
+__pycache__/
+*.pyc
+
+# Node / build
+frontend/node_modules
+frontend/dist/
+node_modules
+
+# Editor / OS / local tooling
+.DS_Store
+.claude/
+.vscode/
+.idea/
+
+# Local workspace file, not part of the assignment
+joke.txt

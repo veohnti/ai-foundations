@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Campus Customs: App Check</title>
+<style>
+  :root { --pink:#f37f94; --sienna:#ae5224; --green:#1a7444; --black:#111314; --muted:#4a4a48; --line:#e7e1dc; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; color: var(--black); background: #fff; line-height: 1.6; }
+  header { padding: 2rem 1.5rem 1.25rem; border-bottom: 4px solid var(--pink); }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+  header .inner { max-width: 1100px; margin: 0 auto; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: 2.2rem; margin: 0 0 .25rem; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; margin: 2.75rem 0 .5rem; }
+  h2 .num { display: inline-block; min-width: 2rem; height: 2rem; line-height: 2rem; margin-right: .5rem; text-align: center; border-radius: 50%; background: var(--green); color: #fff; font-family: Arial, sans-serif; font-size: 1rem; vertical-align: middle; }
+  .meta { color: var(--muted); font-size: .95rem; margin: 0; }
+  .pass { display: inline-block; margin-left: .5rem; padding: .1rem .6rem; border-radius: 999px; background: var(--green); color: #fff; font-size: .8rem; font-weight: 700; vertical-align: middle; font-family: Arial, sans-serif; }
+  figure { margin: 1rem 0 0; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 10px; }
+  figcaption { margin-top: .6rem; padding: .75rem 1rem; border-left: 4px solid var(--pink); background: #fdf3f5; border-radius: 0 8px 8px 0; }
+  figcaption strong { color: var(--black); }
+  table { border-collapse: collapse; margin: .75rem 0 0; font-size: .95rem; }
+  th, td { border: 1px solid var(--line); padding: .35rem .7rem; text-align: center; }
+  th { background: #fbf8f6; }
+  td.match { color: var(--green); font-weight: 700; }
+  .summary td, .summary th { text-align: left; }
+  .note { color: var(--muted); font-size: .9rem; }
+  code { background: #f4f1ee; padding: .05rem .3rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <h1>Campus Customs: App Check</h1>
+    <p class="meta">Live app tested on October 6, 2026. Web app at <code>localhost:5174</code>, FastAPI + PydanticAI backend at <code>localhost:8000</code>, model <code>gpt-5.6-terra</code> via Portkey.
+    Screenshots were taken by driving a real Chrome browser (script: <code>frontend/scripts/app_check.mjs</code>), so every chat answer below comes from the live agent.</p>
+  </div>
+</header>
+<main>
+
+  <table class="summary">
+    <tr><th>#</th><th>Check</th><th>Result</th></tr>
+    <tr><td>1</td><td>Chat reports inventory from the database (no made-up numbers)</td><td><span class="pass">PASS</span></td></tr>
+    <tr><td>2</td><td>A chat request updates the page with search-result cards</td><td><span class="pass">PASS</span></td></tr>
+    <tr><td>3</td><td>Compare two products side by side (Problem 9)</td><td><span class="pass">PASS</span></td></tr>
+  </table>
+
+  <!-- ===================== CHECK 1 ===================== -->
+  <h2><span class="num">1</span>Chat checks inventory from the database <span class="pass">PASS</span></h2>
+  <figure>
+    <img src="app_check_images/inventory_chat.png" alt="Chat answering a stock question on the Baseball Left Chest Crewneck page" />
+    <figcaption>
+      <strong>What this proves:</strong> On the Baseball Left Chest Crewneck page, the shopper asked
+      "How many of this do you have in stock in each size?" The agent identified the product from the page and
+      answered with a per-size count that matches the database exactly, including the two sold-out sizes,
+      so it isn't making up numbers.
+    </figcaption>
+  </figure>
+  <table>
+    <tr><th>Size</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th><th>Total</th></tr>
+    <tr><th>Chat said</th><td>0</td><td>15</td><td>5</td><td>25</td><td>0</td><td>25</td><td>70</td></tr>
+    <tr><th>Database (<code>inventory</code> table)</th><td>0</td><td>15</td><td>5</td><td>25</td><td>0</td><td>25</td><td>70</td></tr>
+    <tr><th>Match</th><td class="match">✓</td><td class="match">✓</td><td class="match">✓</td><td class="match">✓</td><td class="match">✓</td><td class="match">✓</td><td class="match">✓</td></tr>
+  </table>
+
+  <!-- ===================== CHECK 2 ===================== -->
+  <h2><span class="num">2</span>Dynamic search-result cards from a chat request <span class="pass">PASS</span></h2>
+  <figure>
+    <img src="app_check_images/search_cards.png" alt="Products page filtered to 28 crewnecks after a chat request, with highlight cards in the chat" />
+    <figcaption>
+      <strong>What this proves:</strong> Asking "What kind of crewnecks do you have?" from the home page moved
+      the site to Products, which now shows only the agent's results: the heading reads "Crewnecks", the banner
+      says 28 products, and all 28 tiles are crewnecks (the database has exactly 28). The chat adds three
+      clickable highlight cards, and "Show all products" returns to the full catalogue.
+    </figcaption>
+  </figure>
+
+  <!-- ===================== CHECK 3 ===================== -->
+  <h2><span class="num">3</span>Compare two products side by side <span class="pass">PASS</span></h2>
+  <figure>
+    <img src="app_check_images/compare_picker.png" alt="Compare picker opened from the Basic Hoodie product page, searched for saybrook fleece" />
+    <figcaption>
+      <strong>Step 1, choosing an item:</strong> On the Basic Hoodie Big Yale page, "Compare with another item"
+      opens a searchable picker of the other 101 products. Typing "saybrook fleece" narrows it to the one match.
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="app_check_images/compare.png" alt="Compare page with Basic Hoodie Big Yale and Saybrook Sweater Fleece Jacket side by side" />
+    <figcaption>
+      <strong>What this proves:</strong> Picking the fleece opens the two products side by side, with price
+      (the $68 hoodie is tagged "Lower price" against $98), type, colors, live per-size stock (the fleece's XXL
+      shows as sold out), total units (60 vs 31), and descriptions. The stock figures match the database.
+    </figcaption>
+  </figure>
+
+  <h2>Notes</h2>
+  <p class="note">
+    <strong>Bug found and fixed during this check:</strong> The first run of check 1 failed with "The shop assistant
+    is having a moment". The chat panel was sending the shopper's message twice, inside the conversation
+    history and as the new message, so the agent saw the question twice and kept repeating the same
+    lookup until it hit its request limit. The panel now sends only earlier turns, the backend also drops a
+    duplicate, and a failed turn is retried once. After the fix the same question takes 2 model requests.
+    A second, cosmetic bug (the picker's × close button rendering white on white) was also fixed before these
+    screenshots were taken.
+  </p>
+  <p class="note">
+    To re-run these checks: start the backend (<code>cd HW4/backend &amp;&amp; uvicorn main:app --port 8000</code>) and the
+    web app (<code>cd HW4/frontend &amp;&amp; npm run dev -- --port 5174</code>), then run
+    <code>node scripts/app_check.mjs</code> from <code>HW4/frontend</code>.
+  </p>
+</main>
+</body>
+</html>

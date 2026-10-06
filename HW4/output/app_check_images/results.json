@@ -1,0 +1,63 @@
+{
+  "ran_at": "2026-10-06T03:21:19.782Z",
+  "inventory": {
+    "reply": "We have 70 total: XS: 0 (sold out), S: 15, M: 5, L: 25, XL: 0 (sold out), XXL: 25.",
+    "cards": [
+      "Baseball Left Chest Crewneck"
+    ]
+  },
+  "search": {
+    "reply": "I’ve put all 28 crewnecks on the page. You’ve got classic Yale styles like the Reverse Weave and Arched Yale Crest, plus residential college, varsity sport, and family designs. A few good starting points are the heavyweight crest, vintage bulldog, and the multi-color premium crewneck.",
+    "cards": [
+      "Super Heavyweight Crewneck Arched Yale Crest",
+      "District Vit Crewneck Vintage Bulldog",
+      "Hype And Vice Yale University Premium Crewneck"
+    ],
+    "page": {
+      "url": "/products",
+      "heading": "Crewnecks",
+      "banner": "Showing the 28 products the shop assistant found for you.",
+      "tiles": 28,
+      "allCrewnecks": true
+    }
+  },
+  "compare": {
+    "url": "/compare/basic-hoodie-big-yale/saybrook-sweater-fleece-jacket",
+    "names": [
+      "Basic Hoodie Big Yale",
+      "Saybrook Sweater Fleece Jacket"
+    ],
+    "rows": [
+      [
+        "Price",
+        "$68.00Lower price",
+        "$98.00"
+      ],
+      [
+        "Type",
+        "Pullover Hoodie",
+        "Fleece Jacket"
+      ],
+      [
+        "Colors",
+        "navy blue white",
+        "heather gray charcoal gray yellow blue"
+      ],
+      [
+        "Sizes in stock",
+        "XS 15 S 5 M 5 L 8 XL 2 XXL 25",
+        "XS 5 S 8 M 8 L 2 XL 8 XXL —"
+      ],
+      [
+        "Total in stock",
+        "60 units",
+        "31 units"
+      ],
+      [
+        "Description",
+        "Navy pullover hoodie with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest.",
+        "Heather gray full-zip sweater fleece jacket with a stand collar, charcoal gray zipper and pocket trim, and an embroidered Saybrook College crest on the left chest."
+      ]
+    ]
+  }
+}
