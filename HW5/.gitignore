@@ -1,0 +1,22 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# node / vite
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# os / local scratch
+.DS_Store
+data.zip
+joke.txt
+output/screenshots/
+
+# NOTE: data/*.db are intentionally committed (original + working copy).

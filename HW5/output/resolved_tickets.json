@@ -1,0 +1,250 @@
+{
+  "generated_at": "2026-10-11T17:53:59-04:00",
+  "database": "data/campus_customs_new.db",
+  "fresh_start": {
+    "reset_at": "2026-10-11T17:41:49-04:00",
+    "starting_checking_balance": 3400.0
+  },
+  "ending_checking_balance": 152.0,
+  "resolution_rule": "A ticket is resolved when a draft on the board clearly tells the requester what will happen and when (or that it can't be done) and nothing it depends on is still pending human approval.",
+  "tickets": [
+    {
+      "id": 101,
+      "subject": "Bulldog tee",
+      "requester": "Tauhid Zaman",
+      "final_status": "resolved",
+      "runs": [
+        {
+          "run_id": "20261011-174159-ccad35",
+          "mode": "first_pass"
+        },
+        {
+          "run_id": "20261011-174447-9ce121",
+          "mode": "follow_up"
+        },
+        {
+          "run_id": "20261011-174940-a99360",
+          "mode": "follow_up"
+        }
+      ],
+      "outcome": "Size S tee was out of stock (0 on hand). The only apparel vendor was blocked by overdue invoice 501, so the invoice was paid ($840) and a 1-unit restock PO was approved ($8). Tauhid gets a draft saying size S is out of stock, the earliest estimated arrival is September 5, 2026, and sizes M/L/XL are available now as alternatives (no automatic substitution).",
+      "final_customer_draft": {
+        "board_id": 11,
+        "to": "Tauhid Zaman",
+        "subject": "Update: your CC-TEE-WHITE size S request",
+        "sent": false
+      },
+      "agent_contributions": {
+        "boss": "Read the ticket and linked invoice 501, sent Inventory and Accounting off in parallel, then Customer Service; held the ticket at waiting_on_approval twice, and resolved it once the invoice and PO were paid and the customer draft gave a date.",
+        "inventory": "Confirmed CC-TEE-WHITE S had 0 on hand (short 1) with M 5 / L 3 / XL 2 available; found Bulldog Print Co (apparel reprint, 5-day lead) blocked by open invoice 501; consulted Accounting about the invoice and, after it was paid, handed Accounting the PO details; gave Customer Service the customer-safe timing.",
+        "accounting": "Checked cash ($3,400) and requested approval #1 to pay invoice 501 ($840); after payment prepared PO #3 for 1 tee at $8 (unit cost); on the last follow-up recognised PO #3 was already paid and did not duplicate it.",
+        "facilities": null,
+        "customer_service": "Consulted Inventory before every draft; wrote 3 customer drafts (ids 1, 5, 11). The privacy guard refused 5 attempts that mentioned an 'approval'; each was rewritten without internal details."
+      },
+      "human_approvals": [
+        {
+          "approval_id": 1,
+          "what": "Pay invoice 501 (Bulldog Print Co rush reprint, 3 days overdue)",
+          "amount": 840.0,
+          "prepared_by": "accounting",
+          "decision": "approved and paid",
+          "decided_by": "Veohnti",
+          "decided_at": "2026-10-11T17:44:14-04:00",
+          "cash_effect": "3,400.00 → 2,560.00"
+        },
+        {
+          "approval_id": 3,
+          "what": "Purchase order: 1 × CC-TEE-WHITE size S",
+          "amount": 8.0,
+          "prepared_by": "accounting",
+          "decision": "approved and paid",
+          "decided_by": "Veohnti",
+          "decided_at": "2026-10-11T17:49:04-04:00",
+          "cash_effect": "160.00 → 152.00"
+        }
+      ],
+      "handoffs": [
+        "boss → inventory (first pass)",
+        "boss → accounting (first pass)",
+        "inventory → accounting (first pass)",
+        "boss → customer_service (first pass)",
+        "customer_service → inventory (first pass)",
+        "boss → inventory (follow up)",
+        "inventory → accounting (follow up)",
+        "boss → accounting (follow up)",
+        "boss → customer_service (follow up)",
+        "customer_service → inventory (follow up)",
+        "boss → inventory (follow up)",
+        "inventory → accounting (follow up)",
+        "boss → customer_service (follow up)",
+        "customer_service → inventory (follow up)"
+      ],
+      "mcp_tool_calls": {
+        "get_ticket_with_links": 16,
+        "check_stock_and_price": 13,
+        "get_vendor_restock_options": 9,
+        "get_cash_and_obligations": 5,
+        "list_approval_requests": 10,
+        "request_payment_approval": 1,
+        "read_board": 8,
+        "post_draft_to_board": 8,
+        "update_ticket_status": 3,
+        "prepare_purchase_order": 1
+      }
+    },
+    {
+      "id": 102,
+      "subject": "Rent due",
+      "requester": "Elm City Properties",
+      "final_status": "resolved",
+      "runs": [
+        {
+          "run_id": "20261011-174324-735e58",
+          "mode": "first_pass"
+        },
+        {
+          "run_id": "20261011-174606-2d1216",
+          "mode": "follow_up"
+        }
+      ],
+      "outcome": "Rent notice verified against lease 1 ($2,400 due 2026-09-02, 2 days from the desk date). Rent was paid with human approval and the landlord draft confirms the payment. Paying rent moves the lease's next_due to 2026-10-02 by design; Facilities then read that as a discrepancy with the notice and flagged it in the landlord draft (a wording issue to fix, not a real disagreement).",
+      "final_landlord_draft": {
+        "board_id": 7,
+        "to": "Elm City Properties",
+        "subject": "Chapel Street shop rent notice — lease timing clarification",
+        "sent": false
+      },
+      "agent_contributions": {
+        "boss": "Read the ticket and linked lease, delegated the whole job to Facilities, resolved after the rent request was paid and a landlord draft existed.",
+        "inventory": null,
+        "accounting": "Consulted directly by Facilities (not the boss); checked cash and prepared rent payment request #2 for $2,400.",
+        "facilities": "Verified the notice against lease 1 and cash, asked Accounting to prepare the rent request, and wrote two landlord drafts (ids 3 and 7).",
+        "customer_service": null
+      },
+      "human_approvals": [
+        {
+          "approval_id": 2,
+          "what": "Pay rent for lease 1 (Chapel Street shop)",
+          "amount": 2400.0,
+          "prepared_by": "accounting",
+          "decision": "approved and paid",
+          "decided_by": "Veohnti",
+          "decided_at": "2026-10-11T17:44:15-04:00",
+          "cash_effect": "2,560.00 → 160.00"
+        }
+      ],
+      "handoffs": [
+        "boss → facilities (first pass)",
+        "facilities → accounting (first pass)",
+        "boss → facilities (follow up)"
+      ],
+      "mcp_tool_calls": {
+        "get_ticket_with_links": 4,
+        "list_approval_requests": 5,
+        "get_cash_and_obligations": 3,
+        "read_board": 5,
+        "request_payment_approval": 1,
+        "post_draft_to_board": 2,
+        "update_ticket_status": 2
+      }
+    },
+    {
+      "id": 103,
+      "subject": "Bulk hoodie discount",
+      "requester": "Yale AI Club",
+      "final_status": "resolved",
+      "runs": [
+        {
+          "run_id": "20261011-174639-e25236",
+          "mode": "first_pass"
+        },
+        {
+          "run_id": "20261011-175028-206eab",
+          "mode": "follow_up"
+        }
+      ],
+      "outcome": "Yale AI Club asked for 20 size-M hoodies at a bulk discount; only 8 were on hand. A 12-unit restock PO ($264) was prepared but denied by the human (checking had $152-160). The boss set the discount at $46.40 each (20% off the $58 list, above the $22 cost). The Club gets a draft offering 8 hoodies now for $371.20 and saying the other 12 cannot be supplied right now, with no restock date promised.",
+      "final_customer_draft": {
+        "board_id": 13,
+        "to": "Yale AI Club",
+        "subject": "Update: Bulk hoodie request for 20 size-M hoodies",
+        "sent": false
+      },
+      "agent_contributions": {
+        "boss": "Sent pricing to Accounting first, then Inventory and Customer Service; chose the 20% discount ($46.40) from Accounting's options; held at waiting_on_approval for PO #4, then resolved after the denial with the 8-unit offer.",
+        "inventory": "Confirmed 8 on hand / short 12 and that Bulldog Print Co could ship (invoice 501 already paid, 5-day lead); asked Accounting to prepare the 12-unit PO; gave Customer Service customer-safe availability.",
+        "accounting": "Consulted Inventory on stock before pricing; ran check_margin on 5 price points (0-30% off) for the 8 deliverable units; prepared PO #4 (12 × $22 = $264) and flagged that cash ($160) could not cover it.",
+        "facilities": null,
+        "customer_service": "Consulted Inventory and Accounting; wrote 2 customer drafts (ids 9 and 13). Draft 9 was saved without a ticket id, so the board couldn't link it (fixed after this run: drafts now get the ticket id automatically). One attempt was refused by the privacy guard for mentioning an 'approval'."
+      },
+      "human_approvals": [
+        {
+          "approval_id": 4,
+          "what": "Purchase order: 12 × CC-HOOD-NAVY size M",
+          "amount": 264.0,
+          "prepared_by": "accounting",
+          "decision": "denied",
+          "decided_by": "Veohnti",
+          "decided_at": "2026-10-11T17:49:06-04:00",
+          "cash_effect": "none (denied; it would have overdrawn checking: $152 < $264)"
+        }
+      ],
+      "handoffs": [
+        "boss → accounting (first pass)",
+        "accounting → inventory (first pass)",
+        "boss → inventory (first pass)",
+        "inventory → accounting (first pass)",
+        "boss → customer_service (first pass)",
+        "customer_service → inventory (first pass)",
+        "customer_service → accounting (first pass)",
+        "boss → accounting (follow up)",
+        "accounting → inventory (follow up)",
+        "boss → customer_service (follow up)",
+        "customer_service → inventory (follow up)"
+      ],
+      "mcp_tool_calls": {
+        "get_ticket_with_links": 11,
+        "check_stock_and_price": 8,
+        "check_margin": 9,
+        "get_vendor_restock_options": 4,
+        "get_cash_and_obligations": 1,
+        "list_approval_requests": 6,
+        "prepare_purchase_order": 1,
+        "read_board": 5,
+        "post_draft_to_board": 3,
+        "update_ticket_status": 2
+      }
+    }
+  ],
+  "money_summary": {
+    "start": 3400.0,
+    "payments": [
+      {
+        "ticket": 101,
+        "what": "Invoice 501",
+        "amount": -840.0,
+        "balance_after": 2560.0
+      },
+      {
+        "ticket": 102,
+        "what": "Rent, lease 1",
+        "amount": -2400.0,
+        "balance_after": 160.0
+      },
+      {
+        "ticket": 101,
+        "what": "PO #3, 1 tee size S",
+        "amount": -8.0,
+        "balance_after": 152.0
+      },
+      {
+        "ticket": 103,
+        "what": "PO #4, 12 hoodies size M (denied)",
+        "amount": 0.0,
+        "balance_after": 152.0
+      }
+    ],
+    "end": 152.0,
+    "matches_cash_accounts": true
+  }
+}

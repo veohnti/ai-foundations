@@ -1,0 +1,9 @@
+# Campus Customs (HW5) — Python 3.12+ (tested on 3.14)
+# MCP server
+fastmcp==4.1.0
+# Agent team (PydanticAI, OpenAI-compatible via Portkey)
+pydantic-ai-slim[openai,mcp]==2.55.0
+python-dotenv==1.2.4
+# Backend API
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
