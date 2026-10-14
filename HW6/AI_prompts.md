@@ -114,6 +114,12 @@ Rename the Problem 5 title from "Attach your own agents" to "Attack your own age
 
 **What was missing in the original prompt:** The problem title had a typo ("Attach" instead of "Attack").
 
+### Follow-up 4
+
+Confirmed that "Attach" can stay in the verbatim original prompt; only the title needed to say "Attack". No change made.
+
+**What was missing in the original prompt:** Nothing; this settled whether the verbatim prompt should also be corrected (it should not).
+
 # Problem 6: Defend your agent
 
 ## Initial prompt (verbatim)
@@ -224,9 +230,11 @@ Step 3) Context: graders will run our results with their answer key. I will get 
 
 ## Summarized follow-up prompts
 
-_No follow-up prompts yet._
+### Follow-up 1
 
-_What was missing in the original prompt: Nothing identified yet; follow-up prompts have not been provided._
+Confirmed that `unit_price` (not `unti_price` as typed in Step 2) is the correct field name in `output/exam_results.json`. No change needed.
+
+**What was missing in the original prompt:** Step 2 misspelled the field as `unti_price`.
 
 # Problem 9: Results page
 
